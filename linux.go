@@ -30,6 +30,10 @@ func linux() ([]User, error) {
 	//log.Println(string(out))
 
 	outStr := string(out)
+	if outStr == "" {
+		return users, nil
+	}
+
 	rows := strings.Split(outStr, "\n")
 	if len(rows) == 0 {
 		// no users have been found
