@@ -41,6 +41,9 @@ func linux() ([]User, error) {
 		// split into columns...
 		rowParts := strings.Split(row, " ")
 		username := rowParts[0]
+		if username == "" {
+			continue
+		}
 		user := User{
 			Name: username,
 		}
